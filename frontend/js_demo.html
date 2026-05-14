@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 id="demo">This is some text.</h1>
+  <button onclick="changeText()">Change Text</button>
+  <button id="btn">Click Me</button>
+
+  <script>
+    function changeText() {
+      document.getElementById("demo").innerHTML = "Text Changed!";
+    }
+
+    document.getElementById("btn").addEventListener("click", function() {
+      alert("Button clicked!");
+    });
+  </script>
+</body>
+</html>

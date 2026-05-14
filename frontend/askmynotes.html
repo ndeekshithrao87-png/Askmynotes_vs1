@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AskMyNotes</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 760px;
+      background-color: white;
+      border: 1px solid #dbe1e8;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 58px;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #64748b;
+      font-size: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    input[type="file"] {
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    #upload-status {
+      color: #94a3b8;
+      font-size: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 18px;
+      resize: vertical;
+      margin-bottom: 18px;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #2563eb;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      float: right;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    #status {
+      clear: both;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      color: #0f172a;
+      font-size: 28px;
+    }
+
+    #answer {
+      border: 1px solid #dbe1e8;
+      border-radius: 12px;
+      background-color: #f8fafc;
+      padding: 24px;
+      min-height: 120px;
+    }
+
+    #answer-text {
+      color: #475569;
+      font-size: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <header>
+      <h1>AskMyNotes</h1>
+      <p>Chat with your PDF notes using AI-powered retrieval.</p>
+    </header>
+
+    <section>
+      <label for="pdf-input">Upload your notes (PDF)</label>
+
+      <input
+        type="file"
+        id="pdf-input"
+        accept="application/pdf"
+      >
+
+      <p id="upload-status">
+        No file uploaded yet.
+      </p>
+    </section>
+
+    <section>
+      <label for="question">Your question</label>
+
+      <textarea
+        id="question"
+        rows="4"
+        placeholder="What do my notes say about..."
+      ></textarea>
+
+      <button id="ask-btn" type="button">
+        Submit
+      </button>
+
+      <p id="status"></p>
+    </section>
+
+    <section>
+
+      <h2>Answer</h2>
+
+      <div id="answer">
+
+        <p id="answer-text">
+          Your answer will appear here...
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="app.js" defer></script>
+
+</body>
+</html>
+
