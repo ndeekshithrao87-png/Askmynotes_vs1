@@ -14,6 +14,12 @@ pdfInput.addEventListener("change", function () {
   uploadStatus.textContent = "✓ " + file.name + " ready";
   uploadStatus.style.color = "green";
 });
+document.querySelector("#question").addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    askBtn.click();
+  }
+});
 
 // When user clicks Submit
 askBtn.addEventListener("click", async function () {
@@ -50,14 +56,20 @@ askBtn.addEventListener("click", async function () {
     const data = await response.json();
 
     // Show answer
-    answerText.textContent = data.answer;
-    answerText.style.fontStyle = "normal";
-    answerText.style.color = "#0f172a";
-    status.textContent = "Done!";
-    status.style.color = "green";
+    if (data.answer) {
+      answerText.textContent = data.answer;
+      answerText.style.fontStyle = "normal";
+      answerText.style.color = "#0f172a";
+      status.textContent = "Done!";
+      status.style.color = "green";
+    } else {
+      answerText.textContent = data.error || "No answer found in notes.";
+      answerText.style.color = "red";
+      status.textContent = "";
+    }
 
   } catch (error) {
-    answerText.textContent = "Something went wrong. Is the backend running?";
+    answerText.textContent = "Something went wrong. Is the backend running on port 3000?";
     answerText.style.color = "red";
     status.textContent = "";
   }
