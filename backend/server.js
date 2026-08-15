@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve the frontend files (index page is askmynotes.html)
-app.use(express.static(path.join(__dirname, "..", "frontend")));
+app.use(express.static(path.join(__dirname, "..", "frontend"),{ index: false }));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "askmynotes.html"));
 });
